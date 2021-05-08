@@ -1,0 +1,23 @@
+{
+  "name": "vue.js_to-do-list",
+  "version": "1.0.0",
+  "description": "learning vue",
+  "main": "index.js",
+  "dependencies": {
+    "vue": "^3.0.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klo9/vue.js_to-do-list.git"
+  },
+  "author": "klo9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klo9/vue.js_to-do-list/issues"
+  },
+  "homepage": "https://github.com/klo9/vue.js_to-do-list#readme"
+}
