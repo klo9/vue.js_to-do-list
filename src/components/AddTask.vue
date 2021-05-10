@@ -1,6 +1,7 @@
 <template>
 
-    <form @submit="onSubmit" class="add-form">
+    <form 
+    @submit="onSubmit">
 
         <div class="form-control">
             <label for="text">Tasks</label>
@@ -8,8 +9,8 @@
         </div>
 
         <div class="form-control">
-            <label for="date">Day & Time</label>
-            <input type="text" v-model="date" name="date" placeholder="Add Day & Time" class="form-input-txt">
+            <label for="date">Day and Time</label>
+            <input type="text" v-model="date" name="date" placeholder="Add Day and Time" class="form-input-txt">
         </div>
 
         <div class="form-control form-control-check">
@@ -29,8 +30,9 @@ export default {
     data() {
         return {
             text: '',
-            day: '',
-            reminder: false
+            date: '',
+            reminder: false,
+            isHidden: true
         }
     },
     methods: {
@@ -43,7 +45,7 @@ export default {
             }
 
             const newTask = {
-                id: Math.floor(Math.random() * 100000),
+                id: Math.floor(Math.random() * 100000),     // don't do this in prod
                 text: this.text,
                 date: this.date,
                 reminder: this.reminder
@@ -71,7 +73,9 @@ form {
 
 .form-control {
     display: flex;
-    /* align-content: initial; */
+    flex-direction: column;
+    text-align: initial;
+    align-content: flex-start;
     width: 100%;
     padding: 1rem;
 }
@@ -79,14 +83,16 @@ form {
 .form-input-txt {
     border: 1px solid gray;
     padding: 0.5rem;
+    width: 90%
+}
+
+.form-control.form-control-check {
+    flex-direction: row;
 }
 
 .btn-block {
     display: inline-block;
     width: 90%;
-}
-label {
-    width: 50px;
 }
 
 </style>

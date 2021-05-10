@@ -4,7 +4,7 @@
     :class="[task.reminder ? 'reminder' : '', 'task']">
         <h3>
             {{task.text}}
-            <Button @click="$emit('delete-task', task.id)" 
+            <Button @btn-click="$emit('delete-task', task.id)" 
             text="Delete" 
             color="red"/>
         </h3>

@@ -2,9 +2,17 @@
 
   <div class="container">
 
-    <Header />
+    <Header 
+    @show-add-task="showForm"
+    :showAddTask ="showAddTask" />
 
-    <AddTask @add-task="addTask"/>
+    <div v-if="showAddTask">
+
+      <AddTask 
+      @add-task="addTask"/>
+
+    </div>
+    
 
     <Tasks 
     @toggle-reminder="toggleReminder"
@@ -31,7 +39,8 @@
     data() {
       return {
         task: '',
-        tasks: []
+        tasks: [],
+        showAddTask: false
       }
     },
     methods: {
@@ -45,6 +54,9 @@
       },
       toggleReminder(id) {
         this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+      },
+      showForm(){
+        this.showAddTask = !this.showAddTask
       }
     },
     created() {
