@@ -1,8 +1,8 @@
 <template>
     <header>
         <h1>To Do List</h1>
+        <Button text="Add Task" color="green"/>
     </header>
-    <Button text="Add Task" color="green"/>
 </template>
 
 <script>
@@ -20,6 +20,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 1rem;
     }
 
     

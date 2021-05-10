@@ -3,13 +3,13 @@
     <form @submit="onSubmit" class="add-form">
 
         <div class="form-control">
-            <label>Tasks</label>
-            <input type="text" v-model="text" name="text" placeholder="Add Task ">
+            <label for="text">Tasks</label>
+            <input type="text" v-model="text" name="text" placeholder="Add Task" class="form-input-txt">
         </div>
 
         <div class="form-control">
-            <label>Day & Time</label>
-            <input type="text" v-model="day" name="day" placeholder="Add Day & Time">
+            <label for="date">Day & Time</label>
+            <input type="text" v-model="date" name="date" placeholder="Add Day & Time" class="form-input-txt">
         </div>
 
         <div class="form-control form-control-check">
@@ -17,7 +17,7 @@
             <input type="checkbox" v-model="reminder" name="reminder">
         </div>
 
-        <input type="submit" value="Save Task" class="btn">
+        <input type="submit" value="Save Task" class="btn btn-block">
 
     </form>
 
@@ -61,12 +61,32 @@ export default {
 
 <style scoped>
 
-.form-control {
+form {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-content: start;
     width: 90%;
     margin: 0 auto;
+}
+
+.form-control {
+    display: flex;
+    /* align-content: initial; */
+    width: 100%;
+    padding: 1rem;
+}
+
+.form-input-txt {
+    border: 1px solid gray;
+    padding: 0.5rem;
+}
+
+.btn-block {
+    display: inline-block;
+    width: 90%;
+}
+label {
+    width: 50px;
 }
 
 </style>

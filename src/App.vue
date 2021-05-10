@@ -1,91 +1,91 @@
 <template>
+
   <div class="container">
+
     <Header />
+
     <AddTask @add-task="addTask"/>
+
     <Tasks 
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask" 
     :tasks="tasks" />
-    <!-- <h1>To Do List</h1>
-    <form>
-      <input type="text" v-model="task">
-      <input type="submit" value="add" @click="addTask">
-    </form> -->
 
-    <!-- <ol>
-      <li :key="task.id" v-for="task in tasks">{{task.text}}</li>
-    </ol> -->
   </div>
+
 </template>
 
 <script>
-import Header from './components/Header'
-import Tasks from './components/Tasks'
-import AddTask from './components/AddTask'
 
-export default {
-  name: 'App',
-  components: {
-    Header,
-    Tasks,
-    AddTask
-  },
-  data() {
-    return {
-      task: '',
-      tasks: []
-    }
-  },
-  methods: {
-    addTask(task) {
-      this.tasks = [...this.tasks, task]
+  import Header from './components/Header'
+  import Tasks from './components/Tasks'
+  import AddTask from './components/AddTask'
+
+  export default {
+    name: 'App',
+    components: {
+      Header,
+      Tasks,
+      AddTask
     },
-    deleteTask(id) {
-      if (confirm('Are you sure?')){
-        this.tasks = this.tasks.filter((task) => task.id !== id)   // return everything that isn't the id passed
+    data() {
+      return {
+        task: '',
+        tasks: []
       }
     },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
-    }
-  },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Learn Vue',
-        date: 'May 9, 2021',
-        reminder: true
+    methods: {
+      addTask(task) {
+        this.tasks = [...this.tasks, task]
       },
-      {
-        id: 2,
-        text: 'Cry',
-        date: 'May 9, 2021',
-        reminder: true
+      deleteTask(id) {
+        if (confirm('Are you sure?')){
+          this.tasks = this.tasks.filter((task) => task.id !== id)   // return everything that isn't the id passed
+        }
       },
-      {
-        id: 3,
-        text: 'Git gud',
-        date: 'May 9, 2021',
-        reminder: false
+      toggleReminder(id) {
+        this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
       }
-    ]
+    },
+    created() {
+      this.tasks = [
+        {
+          id: 1,
+          text: 'Learn Vue',
+          date: 'May 9, 2021',
+          reminder: true
+        },
+        {
+          id: 2,
+          text: 'Cry',
+          date: 'May 9, 2021',
+          reminder: true
+        },
+        {
+          id: 3,
+          text: 'Git gud',
+          date: 'May 9, 2021',
+          reminder: false
+        }
+      ]
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.container {
-  margin: 0 auto;
-  width: 70%;
-  border: 1px solid gray;
-}
+
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  .container {
+    margin: 0 auto;
+    width: 70%;
+    border: 1px solid gray;
+  }
+
 </style>
