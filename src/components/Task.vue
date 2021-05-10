@@ -1,8 +1,12 @@
 <template>
-    <div class="task">
+
+    <div @dblclick="$emit('toggle-reminder', task.id)" 
+    :class="[task.reminder ? 'reminder' : '', 'task']">
         <h3>
             {{task.text}}
-            <Button text="Delete" color="red"/>
+            <Button @click="$emit('delete-task', task.id)" 
+            text="Delete" 
+            color="red"/>
         </h3>
         <p>{{task.date}}</p>
     </div>
@@ -19,7 +23,7 @@ export default {
     },
     components: {
         Button
-    }
+    },
 }
 </script>
 
@@ -32,5 +36,8 @@ export default {
         align-items: baseline;
         padding: 0 2rem;
         margin: 1rem;
+    }
+    .reminder {
+        border-left: 5px solid green;
     }
 </style>

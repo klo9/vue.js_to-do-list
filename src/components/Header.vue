@@ -3,8 +3,6 @@
         <h1>To Do List</h1>
     </header>
     <Button text="Add Task" color="green"/>
-    <Button text="Update Task" color="blue"/>
-    <Button text="Delete Task" color="red"/>
 </template>
 
 <script>

@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <Header />
-    <Tasks :tasks="tasks" />
+    <AddTask @add-task="addTask"/>
+    <Tasks 
+    @toggle-reminder="toggleReminder"
+    @delete-task="deleteTask" 
+    :tasks="tasks" />
     <!-- <h1>To Do List</h1>
     <form>
       <input type="text" v-model="task">
@@ -17,12 +21,14 @@
 <script>
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
   data() {
     return {
@@ -31,8 +37,16 @@ export default {
     }
   },
   methods: {
-    addTask() {
-      this.tasks.push(this.task)
+    addTask(task) {
+      this.tasks = [...this.tasks, task]
+    },
+    deleteTask(id) {
+      if (confirm('Are you sure?')){
+        this.tasks = this.tasks.filter((task) => task.id !== id)   // return everything that isn't the id passed
+      }
+    },
+    toggleReminder(id) {
+      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
     }
   },
   created() {
